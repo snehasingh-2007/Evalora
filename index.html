@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102a43"><title>Evalora — Course Evaluation Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <section class="login-art"><div class="brand brand-light"><span class="brand-symbol">e</span><span>evalora<small>ACADEMIC EXPERIENCE PLATFORM</small></span></div>
+      <div class="art-copy"><span class="eyebrow">LISTEN. LEARN. IMPROVE.</span><h1>Better courses<br>start with <em>your voice.</em></h1><p>A considered space for meaningful feedback, transparent insights, and continuous academic improvement.</p></div>
+      <div class="art-foot"><span>✳ Student voice matters</span><span>◈ Built for better learning</span></div></section>
+    <section class="login-side"><div class="login-mobile-brand brand"><span class="brand-symbol">e</span><span>evalora</span></div><div class="login-card"><span class="eyebrow accent">YOUR ACADEMIC WORKSPACE</span><h2>Welcome back.</h2><p class="muted">Sign in with your university account to continue.</p>
+      <form id="loginForm"><label for="loginEmail">University email</label><div class="field"><span>✉</span><input id="loginEmail" type="email" autocomplete="username" placeholder="you@university.edu" required></div>
+      <label for="loginPassword">Password</label><div class="field"><span>⌑</span><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required><button type="button" class="show-password" id="togglePassword" aria-label="Show password">◉</button></div>
+      <button class="primary-btn full-btn" type="submit">Sign in <span>→</span></button><p id="loginMessage" class="form-message" role="status"></p></form>
+      <div class="login-help"><span class="help-dot">i</span><p>Access is managed by your institution. If you need an account, contact your portal administrator.</p></div>
+      <p class="login-legal">Secure access · Role-based permissions · Institutional data</p></div></section>
+  </div>
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar"><div class="sidebar-brand"><span class="brand-symbol">e</span><span>evalora<small>ACADEMIC EXPERIENCE</small></span></div>
+      <div class="workspace-label">WORKSPACE</div><nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span>Overview</button>
+        <button class="nav-item" data-page="give-feedback" data-roles="student"><span class="nav-icon">✎</span>Submit feedback</button>
+        <button class="nav-item" data-page="my-feedback" data-roles="student"><span class="nav-icon">▤</span>My submissions</button>
+        <button class="nav-item" data-page="courses"><span class="nav-icon">▣</span>Courses</button>
+        <button class="nav-item" data-page="faculty" data-roles="faculty,admin"><span class="nav-icon">♙</span>Faculty insights</button>
+        <button class="nav-item" data-page="analytics" data-roles="faculty,admin"><span class="nav-icon">▥</span>Analytics</button>
+        <div class="nav-divider" data-roles="admin"></div><div class="workspace-label admin-label" data-roles="admin">ADMINISTRATION</div>
+        <button class="nav-item" data-page="manage" data-roles="admin"><span class="nav-icon">⚙</span>Portal management</button>
+        <button class="nav-item" data-page="people" data-roles="admin"><span class="nav-icon">♧</span>People & access</button>
+        <button class="nav-item" data-page="settings" data-roles="admin"><span class="nav-icon">☷</span>Portal settings</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="help-card"><div class="help-icon">✳</div><strong>Feedback with purpose</strong><p>Thoughtful responses help institutions make better decisions.</p></div><button class="nav-item" id="logoutBtn"><span class="nav-icon">↪</span>Sign out</button><div class="sidebar-version">EVALORA <span>CONNECTED PORTAL</span></div></div>
+    </aside>
+    <main class="main-area"><header class="topbar"><button id="menuToggle" class="icon-button menu-toggle" aria-label="Toggle menu">☰</button><div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbPage">Overview</strong></div><div class="topbar-actions"><span class="connection-status"><i></i><span id="connectionLabel">Connected</span></span><div class="user-menu"><div class="avatar" id="userAvatar">—</div><div class="user-meta"><strong id="userName">Account</strong><span id="userRole">Member</span></div><button class="chevron" id="profileMenuBtn" aria-label="Profile menu">⌄</button><div class="profile-dropdown hidden" id="profileDropdown"><button data-page="dashboard">Overview</button><button id="dropdownLogout">Sign out</button></div></div></div></header>
+      <div id="pageContent" class="page-content"><div class="loading-state"><div class="spinner"></div><p>Loading your workspace…</p></div></div><footer class="app-footer"><span>© <span id="yearNow"></span> Evalora · Faculty Feedback & Course Evaluation</span><span>Designed for continuous improvement <b>✳</b></span></footer></main>
+  </div>
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div><div id="modalRoot"></div>
+  <script src="config.js"></script><script type="module" src="app.js"></script>
+</body></html>
